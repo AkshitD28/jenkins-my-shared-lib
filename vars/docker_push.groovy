@@ -8,7 +8,7 @@ def call(String credId, String imageName){
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
                     
                     // Tag the image (Ensure this matches your local image name)
-                    sh "docker image tag "${imageName}" ${env.dockerHubUser}/${imageName}"
+                    sh "docker image tag ${imageName} ${env.dockerHubUser}/${imageName}"
                     
                     // Push the tagged image
                     sh "docker push ${env.dockerHubUser}/${imageName}:latest"
